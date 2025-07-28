@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+	.sidebar{
+		 	width: 250px;
+            background:black;
+            color: white;
+            min-height: 100vh;
+            
+            position: fixed;	
+	}
+	.sidebar>.canchinhlogo{
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+	}
+	.sidebar>.canchinhlogo>a>.logo{
+		
+		width:200px ;
+		
+	}
+	
+	.menu{
+		margin-top: 20px;
+		
+	}
+	.menu>.menu_item{
+		margin-top: 15px;
+		font-weight: bold;
+		color: white;
+	}
+	
+	.menu_item:hover{
+		
+		background:gray;
+		
+	}
+	
+	.menu_item:hover a {
+		  color:   rgb(102, 194, 255) !important;
+		}
+	
+	.menu_icon{
+		margin-right: 8px;	
+		margin-left: 20px;
+		font-size: 22px;
+	}
+	.side-sanpham:hover{
+		color:  rgb(102, 194, 255) !important;
+	}
+	
+	
+	
+	.thuocsanpham {
+    display: none;	
+    padding-left: 40px;
+  }
+
+  #toggle-sanpham:checked + label + .thuocsanpham {
+    display: block;
+  }
+  
+  
+  
+
+	.thuocsanpham>.menu-itemsp> a{
+		
+		font-size: 14px;
+		margin-top: 2px;
+	
+	}
+	
+	.menu_item:hover .thuocsanpham{
+		
+		background:black;
+		
+		
+	}
+	.menu_item.thuocsanpham>.menu-itemsp> a{
+		color: white !important;
+	}
+	
+	.thuocsanpham>.menu-itemsp a:hover{
+	 background-color:grey; 
+  	color: white !important;
+  }
+	
+	
+	
+	
+	

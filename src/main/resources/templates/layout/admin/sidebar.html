@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tổng quan</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+	
+	
+<div th:fragment="sidebar">
+	
+    <div class="sidebar">
+    <div class="canchinhlogo">
+    <a th:href="@{/trangchu}" ><img class="logo" th:src="@{/images/logoasm1.png}"></a> 
+    </div>
+    
+        <ul class="menu nav flex-column">
+            <li class="menu_item nav-item"><a class="side-tongquan nav-link text-white" th:href="@{/quanly/tongquan}"><i class="menu_icon fa-solid fa-clipboard"></i> Tổng quan</a></li>
+           
+            <li class="menu_item nav-item">
+			  <input type="checkbox" id="toggle-sanpham" hidden>
+			  <label for="toggle-sanpham" class="side-sanpham nav-link text-white d-block">
+			    <i class="menu_icon fa-solid fa-shirt"></i> Sản phẩm
+			    
+			  </label>
+			
+			  <ul class="thuocsanpham nav flex-column">
+			    <li class="menu-itemsp nav-item"><a class="menu-danhsachsp nav-link text-white" th:href="@{/quanly/sanpham/danhsachsanpham}"><i class="fa-solid fa-bars"></i> Danh sách sản phẩm</a></li>
+			    <li class="menu-itemsp nav-item"><a class="menu-danhsachsp nav-link text-white" th:href="@{/quanly/sanpham/danhsachbienthe}"><i class="fa-solid fa-bars"></i> Danh sách biến thể</a></li>
+			    <li class="menu-itemsp nav-item"><a class="menu-thuonghieusp nav-link text-white" th:href="@{/quanly/sanpham/thuonghieu}"><i class="fa-solid fa-star"></i> Thương hiệu sản phẩm</a></li>
+			    <li class="menu-itemsp nav-item"><a class="menu-loaisp nav-link text-white" th:href="@{/quanly/sanpham/loai}"><i class="fa-solid fa-hat-wizard"></i> Loại sản phẩm</a></li>
+			    <li class="menu-itemsp nav-item"><a class="menu-mausacsp nav-link text-white" th:href="@{/quanly/sanpham/mausac}"><i class="fa-solid fa-palette"></i> Màu sắc sản phẩm</a></li>
+			    <li class="menu-itemsp nav-item"><a class="menu-kichthuocsp nav-link text-white" th:href="@{/quanly/sanpham/kichthuoc}"><i class="fa-solid fa-ruler"></i> Kích thước sản phẩm</a></li>
+			    
+			    
+			  </ul>
+			</li>
+
+            
+            <li class="menu_item nav-item"><a class="side-nguoidung nav-link text-white" th:href="@{/quanly/nguoidung}"><i class="menu_icon fa-solid fa-user"></i>Người dùng</a></li>
+            <li class="menu_item nav-item"><a class="side-donhang nav-link text-white" th:href="@{/quanly/donhang}"><i class="menu_icon fa-solid fa-cart-shopping"></i>Đơn hàng</a></li>
+            <li class="menu_item nav-item"><a class="side-thongke nav-link text-white" th:href="@{/quanly/thongke}"><i class="menu_icon fa-solid fa-square-poll-vertical"></i>Thống kê</a></li>
+            <li class="menu_item nav-item"><a class="side-caidatchung nav-link text-white" th:href="@{/quanly/caidatchung}"><i class="menu_icon fa-solid fa-gears"></i>Cài đặt chung</a></li>	
+        </ul>
+    </div>
+</div>
+
+	
+	
+	
+	
+</body>
+</html>

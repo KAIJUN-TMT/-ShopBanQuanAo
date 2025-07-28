@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+<div th:fragment="header">
+
+<nav class="header fixed-top">
+   
+
+    
+
+    <div class="right-icons" style="width:376px;">
+    
+     <div class="d-flex align-items-center" style="width:376px;">
+        <form action="/TaiLT_PC09570_ASM2/tim-kiem" method="get" class="search-bar ms-3">
+            
+            <input type="text" name="keyword" class="form-control border-0 bg-transparent ms-2" placeholder="Tìm kiếm" >
+            <a href="/TaiLT_PC09570_ASM2/trang-chu" class="x button" style="border: none; background:none;"><i class=" fa-solid fa-xmark "></i></a>
+            <button class="timkiem "><i class=" fa-solid fa-magnifying-glass"></i></button> 
+            
+        </form>
+    </div>
+    
+        <div class="dropdown">
+            <a href="#" class="nav-link" id="userDropdown" title="Tài khoản" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user-circle fa-2x text-dark" style="font-size: 38px;"></i>  
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <c:if test="${sessionScope.user == null}">
+                    <li class="px-3 py-2">
+                        <strong>Chưa đăng nhập</strong>
+                        
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a href="/TaiLT_PC09570_ASM2/dang-nhap" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Đăng nhập</a></li>
+                    <li><a href="/TaiLT_PC09570_ASM2/dang-ky" class="dropdown-item"><i class="fa-solid fa-user-plus"></i> Đăng ký</a></li>
+                    <li><a href="/TaiLT_PC09570_ASM2/quen-mat-khau" class="dropdown-item"><i class="fa-solid fa-key"></i> Quên mật khẩu</a></li>
+                </c:if>
+
+                <c:if test="${sessionScope.user != null}">
+                    <li class="px-3 py-2">
+                        
+                        <div class="text-muted">Xem thông tin cá nhân</div>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <c:if test="${sessionScope.user != null && sessionScope.user.admin}">
+                        <li><a class="dropdown-item" href="/TaiLT_PC09570_ASM2/admin"><i class="fa-solid fa-wrench"></i> Quản lý hệ thống</a></li>
+                    </c:if>
+                    <li><a class="dropdown-item" href="/TaiLT_PC09570_ASM2/doi-mat-khau"><i class="fa-solid fa-pen-to-square"></i> Đổi mật khẩu</a></li>
+                    <li><a href="/TaiLT_PC09570_ASM2/dang-xuat" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a></li>
+                </c:if>
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+</div>
+</body>
+
+</html>

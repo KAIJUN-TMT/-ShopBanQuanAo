@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi mật khẩu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/headerclient.css}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 180px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1E90FF;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-label i {
+            margin-right: 8px;
+            color: #1E90FF;
+        }
+
+        .form-control {
+            border-radius: 6px;
+            border: 1px solid #1E90FF;
+            padding: 10px;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 6px;
+            background: #1E90FF;
+            color: white;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-login:hover {
+            background: #007BFF;
+            transform: scale(1.05);
+        }
+
+        .text-danger {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="layout/client/header :: header"></div>
+
+<div class="login-container">
+    <h2 class="login-title">Đặt lại mật khẩu</h2>
+
+    <form th:action="@{/datlaimatkhau}" method="post">
+        <!-- Token ẩn -->
+        <input type="hidden" name="token" th:value="${token}">
+
+        <!-- Thông báo token lỗi -->
+        <div th:if="${tokenkhonghople}" class="text-danger mb-2" th:text="${tokenkhonghople}"></div>
+
+        <!-- Mật khẩu mới -->
+        <div class="mb-3">
+            <label class="form-label"><i class="fa-solid fa-lock"></i> Mật khẩu mới:</label>
+            <input type="password" class="form-control" name="newPassword" placeholder="Nhập mật khẩu mới của bạn." th:value="${newPassword}">
+            <div class="text-danger" th:if="${errorNewPassword}" th:text="${errorNewPassword}"></div>
+        </div>
+
+        <!-- Nhập lại mật khẩu -->
+        <div class="mb-3">
+            <label class="form-label"><i class="fa-solid fa-lock"></i> Xác nhận mật khẩu:</label>
+            <input type="password" class="form-control" name="repeatPassword" placeholder="Nhập lại mật khẩu." th:value="${repeatPassword}">
+            <div class="text-danger" th:if="${errorRepeatPassword}" th:text="${errorRepeatPassword}"></div>
+        </div>
+
+        <button class="btn btn-login" type="submit"><i class="fa-solid fa-key"></i> Lưu thay đổi mật khẩu</button>
+    </form>
+</div>
+
+<div style="width: 1300px; margin: auto;">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <div th:replace="layout/client/footer :: footer"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

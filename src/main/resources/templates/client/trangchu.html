@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<style>
+
+.nav-center> .hdtrangchu{
+    	color: blue;
+    }
+   
+      .product-card {
+    max-width: 300px; /* hoặc 100% nếu muốn tự co trong col-md-3 */
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    border: none;
+    box-shadow: none;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-card h5 {
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 8px 0 5px 0;
+}
+
+.product-card .product-price {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.product-card .product-price {
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #dc3545; /* Màu đỏ cho giá */
+}
+
+.product-card .product-brand {
+    font-size: 14px;
+    color: #6c757d; /* Màu xám nhẹ cho thương hiệu */
+}
+
+    .product-link {
+        display: block;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .product-link:hover {
+        transform: scale(1.05);
+        z-index: 2;
+    }
+
+    .product-link:hover .product-card {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+</style>
+<link rel="stylesheet" th:href="@{/css/trangchu.css}">
+<body>
+	<link rel="stylesheet" th:href="@{/css/headerclient.css}">
+	<div th:replace="layout/client/header :: header"></div>
+		
+	<div class="container" style="margin-top: 100px;"> 
+		<div class="container">
+            <div class="slider mb-5">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/images/products/banner-1.png" class="d-block w-100" alt="...">
+                            <a href="#" class="btn-mua-ngay-1">MUA NGAY</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/products/banner-4.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/products/banner-2.png" class="d-block w-100" alt="...">
+                            <a href="#" class="btn-mua-ngay-3">MUA NGAY</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/products/banner-3.png" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev ms-2" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next me-2" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="homepage-highlights mb-5">
+                <div class="row benefits-row mb-5">
+                    <div class="col-lg-3 benefit-item">
+                        <div class="card border border-primary mx-3">
+                            <div class="card-icon w-100 d-flex justify-content-center">
+                                <i class="bi bi-truck fs-2 text-center text-primary"></i>
+                            </div>
+                            <div class="card-title fw-bold d-flex justify-content-center align-items-center">
+                                <div>Miễn phí vận chuyển</div>
+                            </div>
+                            <div class="card-text fw-light d-flex justify-content-center mb-1">
+                                <div>Nhận hàng trong vòng 3 ngày</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit-item">
+                        <div class="card border border-primary mx-3">
+                            <div class="card-icon w-100 d-flex justify-content-center">
+                                <i class="bi bi-gift fs-2 text-center text-primary"></i>
+                            </div>
+                            <div class="card-title fw-bold d-flex justify-content-center align-items-center">
+                                <div>Quà tặng hấp dẫn</div>
+                            </div>
+                            <div class="card-text fw-light d-flex justify-content-center mb-1">
+                                <div>Nhiều ưu đãi khuyến mãi hot</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit-item">
+                        <div class="card border border-primary mx-3">
+                            <div class="card-icon w-100 d-flex justify-content-center">
+                                <i class="bi bi-patch-check fs-2 text-center text-primary"></i>
+                            </div>
+                            <div class="card-title fw-bold d-flex justify-content-center align-items-center">
+                                <div>Bảo đảm chất lượng</div>
+                            </div>
+                            <div class="card-text fw-light d-flex justify-content-center mb-1">
+                                <div>Sản phẩm đã dược kiểm định</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit-item">
+                        <div class="card border border-primary mx-3">
+                            <div class="card-icon w-100 d-flex justify-content-center">
+                                <i class="bi bi-phone-vibrate fs-2 text-center text-primary"></i>
+                            </div>
+                            <div class="card-title fw-bold d-flex justify-content-center align-items-center">
+                                <div>Hotline: 19001234</div>
+                            </div>
+                            <div class="card-text fw-light d-flex justify-content-center mb-1">
+                                <div>Dịch vụ hỗ trợ bạn 24/7</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row brand-row mb-2">
+                    <div class="col-lg-2 d-flex brand-item">
+                        <a th:href="@{/product}" style="text-decoration: none;">
+                            <div class="card mx-2 h-75 w-100">
+                                <div class="card-img w-100 h-75 d-flex justify-content-center">
+                                    <img src="/images/products/brand/gucci.jpg" alt="" class="img-fluid m-2">
+                                </div>
+                                <div
+                                    class="card-product-count fw-light d-flex justify-content-center align-items-center">
+                                    <div>12 sản phẩm</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 d-flex brand-item">
+                        <a th:href="@{/product}" style="text-decoration: none;">
+                            <div class="card mx-2 h-75 w-100">
+                                <div class="card-img w-100 h-75 d-flex justify-content-center">
+                                    <img src="/images/products/brand/balenciaga.png" alt="" class="img-fluid m-2">
+                                </div>
+                                <div
+                                    class="card-product-count fw-light d-flex justify-content-center align-items-center">
+                                    <div>4 sản phẩm</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 d-flex brand-item">
+                        <a th:href="@{/product}" style="text-decoration: none;">
+                            <div class="card mx-2 h-75 w-100">
+                                <div class="card-img w-100 h-75 d-flex justify-content-center">
+                                    <img src="/images/products/brand/mango.png" alt="" class="img-fluid m-2">
+                                </div>
+                                <div
+                                    class="card-product-count fw-light d-flex justify-content-center align-items-center">
+                                    <div>17 sản phẩm</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 d-flex brand-item">
+                        <a th:href="@{/product}" style="text-decoration: none;">
+                            <div class="card mx-2 h-75 w-100">
+                                <div class="card-img w-100 h-75 d-flex justify-content-center">
+                                    <img src="/images/products/brand/ninomaxx.png" alt="" class="img-fluid m-2">
+                                </div>
+                                <div
+                                    class="card-product-count fw-light d-flex justify-content-center align-items-center">
+                                    <div>14 sản phẩm</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 d-flex brand-item">
+                        <a th:href="@{/product}" style="text-decoration: none;">
+                            <div class="card mx-2 h-75 w-100">
+                                <div class="card-img w-100 h-75 d-flex justify-content-center">
+                                    <img src="/images/products/brand/prada.png" alt="" class="img-fluid m-2">
+                                </div>
+                                <div
+                                    class="card-product-count fw-light d-flex justify-content-center align-items-center">
+                                    <div>11 sản phẩm</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 d-flex brand-item">
+                        <a th:href="@{/product}" style="text-decoration: none;">
+                            <div class="card mx-2 h-75 w-100">
+                                <div class="card-img w-100 h-75 d-flex justify-content-center">
+                                    <img src="/images/products/brand/uniqlo.png" alt="" class="img-fluid m-2">
+                                </div>
+                                <div
+                                    class="card-product-count fw-light d-flex justify-content-center align-items-center">
+                                    <div>97 sản phẩm</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="product-suggestions">
+                    <div class="title-buton d-flex justify-content-center align-items-center mb-4">
+                        <button class="BtnLog" id="BtnLog">
+                            <h2 class="text-white text-uppercase fw-bold">Sản phẩm mới</h2>
+                        </button>
+                    </div>
+                    
+                   <div class="container mt-5">
+        <h1 class="text-center mb-4">Danh sách sản phẩm</h1>
+        
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 mb-3">
+    <div class="col " th:each="sp : ${dsSanPham}">
+        <a th:href="@{/chitietsanpham/{id}(id=${sp.id})}" class="product-link" style="text-decoration: none; color: inherit;">
+            <div class="product-card" style="border:1px solid black ; height:360px ;">
+                <img th:src="@{'/images/' + ${sp.hinhAnh}}" class="product-image" alt="Hình ảnh" style="border-bottom: 1px solid black; height:250px ; max-height: 250;">
+
+                <h5 th:text="${sp.tenSanPham}"></h5>
+
+                <div class="product-price text-danger fw-bold mb-2"
+				     th:if="${sp.chiTietSanPham != null and !sp.chiTietSanPham.isEmpty()}"
+				     th:text="${#numbers.formatDecimal(sp.chiTietSanPham[0].giaGoc, 0, 'COMMA', 3, 'POINT')} + ' VNĐ'">
+				</div>
+                <div class="product-price text-danger fw-bold mb-2" th:if="${sp.chiTietSanPham.isEmpty()}">
+                    Hết hàng
+                </div>
+
+                <div class="product-brand text-secondary"
+                     th:if="${sp.thuongHieu != null}"
+                     th:text="'Thương hiệu: ' + ${sp.thuongHieu.tenThuongHieu}">
+                </div>
+                <div class="product-brand text-muted" th:if="${sp.thuongHieu == null}">
+                    Thương hiệu: Không xác định
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+</div>
+
+
+    </div>
+                </div>
+            </div>
+            <div class="fashion-section mb-5">
+                <div class="row">
+                    <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                        <iframe width="560" height="315" class="m-3 me-1"
+                            src="https://www.youtube.com/embed/mOivTJtuLDo?si=ojBrytY2rLB2_Bqb" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                    	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.420494742025!2d105.7556524747934!3d9.982081490122432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a08906415c355f%3A0x416815a99ebd841e!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYw!5e0!3m2!1svi!2s!4v1748602761731!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-primary-darker text-white d-flex justify-content-center align-items-center"
+            style="height: 10vh">
+            <div class="quote-font fs-2 fs-italic">
+                “Thời trang không hoàn hảo. Nó thể hiện chính bạn.”
+            </div>
+        </div>
+		
+	
+	</div>
+	<div style="width: 1300px; margin: auto;">
+		<link rel="stylesheet" th:href="@{/css/footer.css}">
+		<div th:replace="layout/client/footer :: footer"></div>
+	</div>
+	 
+	
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

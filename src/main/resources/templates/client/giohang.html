@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px;
+  background-color: #fff;
+  color: #000;
+}
+
+.cart-container {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.cart-container h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.cart-container p {
+  margin-bottom: 20px;
+  
+}
+.cart-container>p {
+  margin-left: 10px;
+  
+}
+.cart-items {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cart-item {
+  width: 300px;
+  padding: 10px;
+  text-align: left;
+}
+
+.cart-item img {
+  width: 100%;
+  height: auto;
+}
+
+.cart-item h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+
+.price {
+  color: #888;
+}
+
+.sale {
+  color: #d00;
+  display: block;
+}
+
+.size, .brand, .code {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  width: fit-content;
+}
+
+.quantity button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+.quantity button:first-child {
+  border-left: none;
+}
+
+.quantity button:last-child {
+  border-right: none;
+}
+
+.quantity input {
+  width: 40px;
+  height: 32px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+.cart-footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cart-footer button,
+.cart-footer a.checkout {
+  padding: 10px 20px;
+  border: 1px solid black;
+  background: white;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cart-footer .checkout {
+  background: black;
+  color: white;
+  border: none;
+}
+
+.cart-footer .total {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.go a {
+  color: black;
+}
+.go {
+  margin-top: 20px;
+}
+.footer{
+margin-top: 60px;
+}
+
+.nav-center> .hdgiohang{
+    	color: blue;
+    }
+</style>
+
+
+<body>
+	<link rel="stylesheet" th:href="@{/css/headerclient.css}">
+		<div th:replace="layout/client/header :: header"></div>
+		
+	<div class="container" style="margin-top: 100px;">
+		
+		 <div class="cart-container">
+    <h2>THÔNG TIN GIỎ HÀNG</h2>
+    <p>Bạn có 2 mặt hàng trong giỏ.</p>
+
+    <div class="cart-items">
+      <!-- Item 1 -->
+      <div class="cart-item">
+        <img th:src="@{/images/hinh1.jpg}">
+        <p class="brand">© ELISE</p>
+        <p class="code">FS2301192DMWOGR</p>
+        <h3>ĐẦM GHI ĐẬM BOOM GẤU DAI EO</h3>
+        <p class="price">2.098.000 VND <span class="sale">1.468.600 VND</span></p>
+        <p class="size">L</p>
+        <div class="quantity">
+          <button>-</button>
+          <input type="text" value="1">
+          <button>+</button>
+        </div>
+        <div class="go">
+          <a href="#">Gỡ</a>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="cart-item">
+        <img th:src="@{/images/hinh1.jpg}">
+        <p class="brand">© ELISE</p>
+        <p class="code">FS2301192DMWOGR</p>
+        <h3>ĐẦM GHI ĐẬM BOOM GẤU DAI EO</h3>
+        <p class="price">2.098.000 VND <span class="sale">1.468.600 VND</span></p>
+        <p class="size">M</p>
+        <div class="quantity">
+          <button>-</button>
+          <input type="text" value="1">
+          <button>+</button>
+        </div>
+        <div class="go">
+          <a href="#">Gỡ</a>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Cart Footer -->
+    <div class="cart-footer">
+      <button>TIẾP TỤC MUA HÀNG</button>
+      <p class="total">Tổng đơn đặt hàng: 2.937.200 VND <br><span>* Đã bao gồm thuế VAT</span></p>
+      <button>CẬP NHẬT GIỎ HÀNG</button>
+      <a th:href="@{/thanhtoan}" class="checkout" style="background-color: black;color: white;">THANH TOÁN</a>
+    </div>
+   
+  
+  </div>
+		
+	
+	</div>
+	
+	<link rel="stylesheet" th:href="@{/css/footer.css}">
+		<div th:replace="layout/client/footer :: footer"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

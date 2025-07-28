@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Quản lý thống kê</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<style>
+.main-content {
+	margin-left: 250px;
+	padding: 20px;
+}
+
+.menu>.menu_item>.side-thongke {
+	padding-top: 15px;
+	font-weight: bold;
+	background: gray;
+	color: rgb(102, 194, 255) !important;
+}
+
+.title {
+	position: fixed;
+	top: 10px;
+	left: 270px;
+	font-size: 32px;
+	font-weight: bold;
+	z-index: 2001;
+	padding: 10px 20px;
+	border-radius: 8px;
+}
+
+.custom-table th {
+	background-color: #000;
+	color: #fff;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.custom-table td {
+	vertical-align: middle;
+}
+
+.custom-table tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.btn-xem {
+	background-color: #00bfff;
+	color: #fff;
+	padding: 4px 10px;
+	font-size: 14px;
+	border: none;
+	border-radius: 4px;
+}
+
+.btn-xem:hover {
+	background-color: #0099cc;
+}
+</style>
+
+<body>
+	<link rel="stylesheet" th:href="@{/css/sidebar.css}">
+	<div th:replace="layout/admin/sidebar :: sidebar"></div>
+
+	<div class="main-content">
+		<div class="header">
+			<link rel="stylesheet" th:href="@{/css/header.css}">
+			<div th:replace="layout/admin/header :: header"></div>
+		</div>
+
+		<h1 class="title">
+			<i class="fa-solid fa-square-poll-vertical" style="font-size: 36px"></i>
+			Quản lý thống kê SyntaxError
+		</h1>
+
+		<!-- Thống kê theo ngày -->
+		<div class="mt-5 mb-4">
+			<h2 class="mb-3 text-info fw-bold">Thống kê theo ngày</h2>
+			<div class="table-responsive">
+				<table class="table custom-table">
+					<thead>
+						<tr>
+							<th>Ngày</th>
+							<th>Số đơn hàng</th>
+							<th>Doanh thu</th>
+							<th class="text-center">Hành động</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="ngayTK : ${thongKeNgay}">
+							<td th:text="${#dates.format(ngayTK.ngay, 'dd/MM/yyyy')}">01/01/2025</td>
+							<td th:text="${ngayTK.soLuongDon}">0</td>
+							<td
+								th:text="${#numbers.formatDecimal(ngayTK.doanhThu, 0, 'COMMA', 0, 'POINT')} + ' ₫'">0
+								₫</td>
+							<td class="text-center align-middle">
+								<div class="d-flex justify-content-center align-items-center">
+									<button class="btn-xem">Xem</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+
+		<!-- Sản phẩm bán chạy -->
+		<div class="mb-4">
+			<h2 class="mb-3 text-info fw-bold">Sản phẩm bán chạy</h2>
+			<div class="table-responsive">
+				<table class="table custom-table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Tên sản phẩm</th>
+							<th>Số lượng bán</th>
+							<th class="text-center">Hành động</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="sp, index : ${topSanPham}">
+							<td th:text="${index.index + 1}">1</td>
+							<td th:text="${sp.tenSanPham}">Tên SP</td>
+							<td th:text="${sp.tongSoLuong}">0</td>
+							<td class="text-center align-middle">
+								<div class="d-flex justify-content-center align-items-center">
+									<button class="btn-xem">Xem</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Người mua nhiều nhất -->
+		<div>
+			<h2 class="mb-3 text-info fw-bold">Người mua nhiều nhất</h2>
+			<div class="table-responsive">
+				<table class="table custom-table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Tên khách hàng</th>
+							<th>Số đơn hàng</th>
+							<th>Tổng chi tiêu</th>
+							<th class="text-center">Hành động</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="nguoiMua, i : ${topNguoiMua}">
+							<td th:text="${i.index + 1}">1</td>
+
+							<!-- Tên khách -->
+							<td th:text="${nguoiMua.hoTen}">Tên khách</td>
+
+							<!-- Số đơn -->
+							<td th:text="${nguoiMua.soLuongMua}">0</td>
+
+							<!-- Tổng chi tiêu -->
+							<td
+								th:text="${#numbers.formatDecimal(nguoiMua.tongChiTieu, 0, 'COMMA', 0, 'POINT')} + ' ₫'">
+								0 ₫</td>
+
+							<td class="text-center align-middle">
+								<div class="d-flex justify-content-center align-items-center">
+									<button class="btn-xem">Xem</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

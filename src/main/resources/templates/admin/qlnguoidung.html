@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<style>
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    
+   .menu>.menu_item>.side-nguoidung{
+		padding-top: 15px;
+		font-weight: bold;
+		background: gray;
+		color:   rgb(102, 194, 255) !important;
+	}
+	
+		.title {
+	
+    position: fixed;
+    top: 10px;
+    left: 270px; 
+    font-size: 32px;
+    font-weight: bold;
+    z-index: 2001; 
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+  </style>
+<body>
+	<link rel="stylesheet" th:href="@{/css/sidebar.css}">
+	<div th:replace="layout/admin/sidebar :: sidebar"></div>
+	 
+	 <div class="main-content">
+	 
+	 	<div class="header">
+			<link rel="stylesheet" th:href="@{/css/header.css}">
+			<div th:replace="layout/admin/header :: header"></div>	 	
+	 	</div>
+	 	<h1 class="title"><i class="menu_icon fa-solid fa-user" style="font-size: 36px"></i> Quản lý người dùng SyntaxError</h1>
+	 	
+	 	
+	 	
+	 	<div class="container mt-5">
+	 	
+ 			 <h3 class="mb-3">Danh sách Tài Khoản</h3>
+  			<div class="mb-3">
+			      <form class="d-flex align-items-center" th:action="@{/quanly/sanpham/tim}" method="post">
+			        <input class="form-control me-2" type="search" name="keyword" placeholder="Tìm tài khoản" aria-label="Search" style="height: 50px;">
+			        <button class="btn btn-outline-primary" type="submit" style="height: 50px; width: 166px;">
+			          <i class="fa-solid fa-magnifying-glass"></i> Tìm
+			        </button>
+			      </form>
+			    </div>
+			    
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover text-center align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Id</th>
+          <th>Họ Tên</th>
+          <th>Email</th>
+          <th>Ngày Sinh</th>
+          <th>Giới Tính</th>
+          <th>SĐT</th>
+          <th>Ngày Đăng Ký</th>
+          <th>Trạng Thái</th>
+          <th>Vai Trò</th>
+          <th>Hành Động</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr th:each="users, iterStat : ${users}">
+        <td th:text="${users.id}">1</td>
+        <td th:text="${users.hoTen}">Tên</td>
+        <td th:text="${users.email}">Email</td>
+        <td th:text="${#dates.format(users.ngaySinh, 'dd-MM-yyyy')}">Ngày sinh</td>
+        <td th:text="${users.gioiTinh == true ? 'Nam' : 'Nữ'}">Giới tính</td>
+        <td th:text="${users.soDienThoai}">SĐT</td>
+        <td th:text="${#dates.format(users.ngayDangKy, 'yyyy-MM-dd')}">Ngày đăng ký</td>
+        <td>
+            <span th:classappend="${users.trangThai} ? 'badge bg-success' : 'badge bg-danger'"
+                  th:text="${users.trangThai} ? 'Hoạt động' : 'Bị khóa'">Trạng thái</span>
+        </td>
+        <td th:text="${users.vaiTro} ? 'Quản lý' : 'Khách hàng'">Vai trò</td>
+        <td>
+            <a th:href="@{/quanly/nguoidung/khoa/{id}(id=${users.id})}" class="btn btn-warning btn-sm me-1">
+                <i class="fa-solid fa-pen-to-square"></i> Khóa
+            </a>
+            <a th:href="@{/quanly/nguoidung/xoa/{id}(id=${users.id})}" class="btn btn-danger btn-sm">
+                <i class="fa-solid fa-trash"></i> Xóa
+            </a>
+        </td>
+    </tr>
+</tbody>
+    </table>
+  </div>
+  
+  <nav aria-label="Page navigation example" style="display: flex; justify-content: center;">
+		  <ul class="pagination">
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+		    <li class="page-item"><a class="page-link" href="#">2</a></li>
+		    <li class="page-item"><a class="page-link" href="#">3</a></li>
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+</div>
+	 	
+	 </div>
+</body>
+</html>

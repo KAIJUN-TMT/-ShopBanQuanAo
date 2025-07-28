@@ -1,0 +1,124 @@
+@charset "UTF-8";
+body {
+
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.product-card {
+    background-color: #fff;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+@media (max-width: 576px) {
+    .product-image {
+        height: 200px;
+    }
+}
+
+.ellipsis-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-sugges-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-hover {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.card-sugges-img:hover .img-hover {
+    opacity: 1;
+}
+
+.card-sugges-img .img-default {
+    transition: opacity 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.filter-sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #f9f9f9;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 1050;
+    padding: 1rem;
+}
+
+.filter-sidebar.open {
+    left: 0;
+}
+
+.filter-toggle {
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.close-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.accordion-button {
+    padding: 0.5rem 0;
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+}
+
+.close-filters-btn {
+    margin-top: 2rem;
+    border: 1px solid #00bcd4;
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    width: 100%;
+}

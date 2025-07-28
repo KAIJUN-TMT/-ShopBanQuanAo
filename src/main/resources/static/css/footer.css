@@ -1,0 +1,55 @@
+* Tổng thể footer */
+.footer-container {
+   background-color: #f5f5f5; /* Xám nhạt */
+  padding: 40px 20px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Cột trong footer */
+.footer-container .row > div {
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  background-color: #f5f5f5; /* Xám nhạt */
+}
+
+/* Bỏ đường kẻ trái ở cột đầu tiên */
+.footer-container .row > div:first-child {
+  border-left: none;
+}
+
+/* Icon mạng xã hội */
+.footer-icons i {
+  font-size: 20px;
+}
+
+/* Hình ảnh phương thức thanh toán và vận chuyển */
+.footer-images img {
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Tăng khoảng cách dòng trong danh sách liên kết */
+.footer-container ul li {
+  margin-bottom: 8px;
+}
+
+/* Link mặc định không có gạch chân */
+.footer-container a {
+  text-decoration: none;
+}
+
+/* Link hover */
+.footer-container a:hover {
+  text-decoration: underline;
+}
+
+.copyright{
+	background: black;
+	color: white;
+	text-align: center;
+	padding:10px;
+	
+	height: 40px;
+	
+}

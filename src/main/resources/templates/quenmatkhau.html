@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quên mật khẩu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 180px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1E90FF;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-label i {
+            margin-right: 8px;
+            color: #1E90FF;
+        }
+
+        .form-control {
+            border-radius: 6px;
+            border: 1px solid #1E90FF;
+            padding: 10px;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 6px;
+            background: #1E90FF;
+            color: white;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-login:hover {
+            background: #007BFF;
+            transform: scale(1.05);
+        }
+
+        .text-danger {
+            font-size: 14px;
+            color: red;
+            margin-top: 5px;
+        }
+
+        .text-success {
+            font-size: 14px;
+            color: green;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<link rel="stylesheet" th:href="@{/css/headerclient.css}">
+<div th:replace="layout/client/header :: header"></div>
+
+<div class="login-container">
+    <h2 class="login-title">Quên mật khẩu</h2>
+    
+    <form th:action="@{/quenmatkhau}" method="post">
+        <div class="mb-3">
+            <label class="form-label"><i class="fa-solid fa-envelope"></i> Email:</label>
+            <input type="text" class="form-control" name="email" placeholder="Nhập email của bạn.">
+            <!-- Hiển thị lỗi nếu có -->
+            <div class="text-danger" th:text="${error}"></div>
+            
+            <!-- Hiển thị thành công nếu có -->
+            <div class="text-success" th:text="${message}"></div>
+        </div>
+
+        <button class="btn btn-login" type="submit"><i class="fa-solid fa-sign-in-alt"></i> Gửi mã xác nhận</button>
+    </form>
+</div>
+
+<div style="width: 1300px; margin: auto;">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <div th:replace="layout/client/footer :: footer"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

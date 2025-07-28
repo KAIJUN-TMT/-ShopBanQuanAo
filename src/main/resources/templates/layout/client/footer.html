@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Footer - KAIJUN.STORE</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Tùy chọn: CSS riêng -->
+<link rel="stylesheet" th:href="@{/css/footer.css}" />
+
+
+</head>
+
+<body>
+
+  <!-- Footer Start -->
+  <div th:fragment="footer">
+  <div class=" footer-container mt-4 mb-1">
+    <div class="row">
+      <!-- Cột 1 -->
+      <div class="col-md-3">
+        <a class="fw-bold text-dark d-block mb-2" href="#">Thời trang SyntaxError</a>
+        <p class="text-muted">
+          Hệ thống thời trang cho phái mạnh hàng đầu Việt Nam, hướng tới phong cách nam tính, lịch lãm và trẻ trung.
+        </p>
+        <div class="d-flex gap-3 mb-3 footer-icons">
+          <a href="#"><i class="fab fa-facebook-f text-primary"></i></a>
+          <a href="#"><i class="fab fa-instagram text-danger"></i></a>
+          <a href="#"><i class="fab fa-tiktok text-dark"></i></a>
+          <a href="#"><i class="fab fa-youtube text-danger"></i></a>
+        </div>
+        <h6 class="fw-bold mt-4">Phương thức thanh toán</h6>
+        <div class="d-flex flex-wrap gap-2 footer-images">
+          <img src="images/payment_1_img.webp" alt="" />
+          <img src="images/payment_2_img.webp" alt="" />
+          <img src="images/payment_3_img.webp" alt="" />
+          <img src="images/payment_4_img.webp" alt="" />
+          <img src="images/payment_5_img.webp" alt="" />
+          <img src="images/payment_6_img.webp" alt="" />
+        </div>
+      </div>
+
+      <!-- Cột 2 -->
+      <div class="col-md-3">
+        <a class="fw-bold text-dark d-block mb-2" href="#">Thông tin liên hệ</a>
+        <p class="text-muted mb-2"><strong>Địa chỉ:</strong> Tầng 8, tòa nhà Ford, số 313 Trường Chinh, Thanh Xuân, Hà Nội</p>
+        <p class="text-muted mb-2"><strong>Điện thoại:</strong> 0964942121</p>
+        <p class="text-muted mb-2"><strong>Fax:</strong> 0904636356</p>
+        <p class="text-muted mb-2"><strong>Email:</strong> cskh@torano.vn</p>
+
+        <h6 class="fw-bold mt-4">Phương thức vận chuyển</h6>
+        <div class="d-flex flex-wrap gap-2 footer-images">
+          <img src="images/shipment_1_img.webp" alt="" />
+          <img src="images/shipment_2_img.webp" alt="" />
+          <img src="images/shipment_3_img.webp" alt="" />
+          <img src="images/shipment_4_img.webp" alt="" />
+        </div>
+      </div>
+
+      <!-- Cột 3 -->
+      <div class="col-md-3">
+        <a class="fw-bold text-dark d-block mb-2" href="#">Nhóm liên kết</a>
+        <ul class="list-unstyled text-muted">
+          <li><a href="#" class="text-muted">Tìm kiếm</a></li>
+          <li><a href="#" class="text-muted">Giới thiệu</a></li>
+          <li><a href="#" class="text-muted">Chính sách đổi trả</a></li>
+          <li><a href="#" class="text-muted">Chính sách bảo mật</a></li>
+          <li><a href="#" class="text-muted">Tuyển dụng</a></li>
+        </ul>
+      </div>
+
+      <!-- Cột 4 -->
+      <div class="col-md-3">
+        <a class="fw-bold text-dark d-block mb-2" href="#">Đăng ký nhận tin</a>
+        <p class="text-muted">
+          Đăng ký nhận tin để cập nhật những sản phẩm mới, nhận thông tin ưu đãi đặc biệt và thông tin giảm giá khác.
+        </p>
+      </div>
+    </div>
+    
+  </div>
+  	
+   </div>
+  <!-- Footer End -->
+
+  <!-- Bootstrap JS Bundle (tùy chọn nếu cần) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

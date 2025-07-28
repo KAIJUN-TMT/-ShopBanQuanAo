@@ -1,0 +1,141 @@
+@charset "UTF-8";
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(28, 97, 235, 0.8);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 60% 60%;
+}
+.btn-mua-ngay-1 {
+  position: absolute;
+  bottom: 5%;
+  left: 7%;
+  background-color: #ff4d4f;
+  color: white;
+  padding: 3px 80px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 45px;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.btn-mua-ngay-1:hover {
+  background-color: #ad2229;
+}
+.btn-mua-ngay-3 {
+  position: absolute;
+  bottom: 65%;
+  left: 35%;
+  background-color: #ff4d4f;
+  color: white;
+  padding: 3px 80px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 25px;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.btn-mua-ngay-3:hover {
+  background-color: #ad2229;
+}
+
+.brand-item .card{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.brand-item .card:hover{
+ transform: scale(1.05);
+ border: 2px solid var(--bs-primary);
+}
+
+.BtnLog {
+    position: relative;
+    width: 30%;
+    height: 30%;
+    border-radius: 40px;
+    border: none;
+    background-color: rgb(69, 167, 206);
+    color: white;
+    box-shadow: 0px 10px 10px #9dc1e5 inset,
+        0px 5px 10px rgba(5, 5, 5, 0.212),
+        0px -10px 10px rgb(36, 132, 170) inset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.BtnLog::before {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.678);
+    content: "";
+    filter: blur(1px);
+    top: 7px;
+    border-radius: 50%;
+}
+
+.BtnLog::after {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.137);
+    content: "";
+    filter: blur(1px);
+    bottom: 7px;
+    border-radius: 50%;
+}
+.ellipsis-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Ẩn nút lúc đầu */
+.overlay-button {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+/* Làm mờ ảnh khi hover */
+.card-sugges-img:hover .product-image {
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+/* Hiện nút khi hover */
+.card-sugges-img:hover .overlay-button {
+    opacity: 1;
+}
+
+.bg-primary-darker {
+  background-color: #133455;
+}
+
+.quote-font{
+  font-family: Arial, Helvetica, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold; /* In đậm */
+  font-style: italic; /* In nghiêng */
+}
